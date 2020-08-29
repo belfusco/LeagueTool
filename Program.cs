@@ -9,7 +9,7 @@ namespace LeagueTool
 {
     class Program
     {
-        private static string apiKey = "RGAPI-a0410894-3b41-4d51-b3ee-96f6e1260ada";
+        private static string apiKey = "";
 		
 		private static string buildRequest(int choice, string summonerNameUrl)
 		{
