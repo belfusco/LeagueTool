@@ -158,7 +158,8 @@ namespace myApp
 				{
 					for(int i = 0; i < root.GetArrayLength(); i++)
 					{
-						Console.WriteLine((i+1) + ".  " + root[i].GetProperty("summonerName"));
+						string formatNum = ((i+1) + ".").PadRight(5);
+						Console.WriteLine(formatNum + root[i].GetProperty("summonerName"));
 					}
 					break;
 				}
