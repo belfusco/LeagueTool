@@ -1,15 +1,16 @@
-﻿using System;
+using System;
 using System.Net;
 using System.IO;
 using System.Text.Json;
 //using JValue;
 //using Formatting;
 
-namespace LeagueTool
+
+namespace myApp
 {
     class Program
     {
-        private static string apiKey = "RGAPI-a0410894-3b41-4d51-b3ee-96f6e1260ada";
+		private static string apiKey = "RGAPI-f8db2d2b-b629-486e-a5c4-6c9f01ddeedf";
 		
 		private static string buildRequest(int choice, string summonerNameUrl)
 		{
@@ -18,6 +19,7 @@ namespace LeagueTool
 			{
 				case 1:
 				{
+					
 					requestString = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerNameUrl;
 					break;
 				}
@@ -40,6 +42,11 @@ namespace LeagueTool
 				case 3:
 				{
 					requestString = "https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + getEncryptedID(summonerNameUrl);
+					break;
+				}
+				case 4:
+				{
+					requestString = "https://na1.api.riotgames.com/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I";
 					break;
 				}
 			}
@@ -147,8 +154,36 @@ namespace LeagueTool
 
 					break;
 				}
+				case 4:
+				{
+					for(int i = 0; i < root.GetArrayLength(); i++)
+					{
+						Console.WriteLine((i+1) + ".  " + root[i].GetProperty("summonerName"));
+					}
+					break;
+				}
 			}
 			
+		}
+		
+		private static string[] summonerNameInput()
+		{
+			string[] summonerInfo = new string[2];
+			Console.Write("Enter the summoner name:  ");
+			string summoner = Console.ReadLine();
+			//in case of spaces, "URLify" the name for use in the URL later
+			string urlSummoner = "";
+			foreach (char ch in summoner)
+			{
+				if(ch == ' ')
+					urlSummoner += "%20";
+				else
+					urlSummoner += ch;
+			}				
+			Console.WriteLine("Summoner name URLified: " + urlSummoner);
+			summonerInfo[0] = summoner;
+			summonerInfo[1] = urlSummoner;
+			return summonerInfo;
 		}
 		
         static void Main(string[] args)
@@ -164,22 +199,21 @@ namespace LeagueTool
 				Console.WriteLine("1:Summoner lookup by name");
 				Console.WriteLine("2:Summoner league lookup");
 				Console.WriteLine("3:Champion mastery lookup");
+				Console.WriteLine("4:View Challenger League");
 				//Console.WriteLine("0:Quit");
 				try
 				{
 					int choice = Convert.ToInt32(Console.ReadLine());
-					Console.Write("Enter the summoner name:  ");
-					string summoner = Console.ReadLine();
-					//in case of spaces, "URLify" the name for use in the URL later
+					string summoner = "";
 					string urlSummoner = "";
-					foreach (char ch in summoner)
+					if(choice <= 3)
 					{
-						if(ch == ' ')
-							urlSummoner += "%20";
-						else
-							urlSummoner += ch;
-					}				
-					Console.WriteLine("Summoner name URLified: " + urlSummoner);
+						string[] summonerInfo = summonerNameInput();
+						urlSummoner = summonerInfo[1];
+						summoner = summonerInfo[0];
+					}
+					
+					
 					
 					//create a webrequest using the WebRequest class
 					WebRequest request = WebRequest.Create(buildRequest(choice,urlSummoner) + "?api_key=" + apiKey);
@@ -211,6 +245,8 @@ namespace LeagueTool
 						done = true;
 					response.Close();	
 				}
+				
+				
 				
 				
 				catch(Exception e)
