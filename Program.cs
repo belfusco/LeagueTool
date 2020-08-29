@@ -10,7 +10,7 @@ namespace myApp
 {
     class Program
     {
-		private static string apiKey = "RGAPI-f8db2d2b-b629-486e-a5c4-6c9f01ddeedf";
+		private static string apiKey = "";
 		
 		private static string buildRequest(int choice, string summonerNameUrl)
 		{
