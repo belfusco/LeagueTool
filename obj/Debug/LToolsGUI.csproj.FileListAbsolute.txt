@@ -1,0 +1,10 @@
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\bin\Debug\LToolsGUI.exe.config
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\bin\Debug\LToolsGUI.exe
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\bin\Debug\LToolsGUI.pdb
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.csprojAssemblyReference.cache
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.Form1.resources
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.Properties.Resources.resources
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.csproj.GenerateResource.cache
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.csproj.CoreCompileInputs.cache
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.exe
+C:\Users\mcswe\source\repos\LToolsGUI\LToolsGUI\obj\Debug\LToolsGUI.pdb
