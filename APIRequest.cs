@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,3 +42,17 @@ namespace LToolsGUI {
 
 	}
 }
+=======
+﻿using System;
+
+public class APIRequest
+{
+	
+	public APIRequest()
+	{ 
+
+	}
+
+
+}
+>>>>>>> 91bf361baafba2b8e04143472cb05bd714c7e4ad
